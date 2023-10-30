@@ -11,6 +11,11 @@ public class Follow_Player_2 : MonoBehaviour
     [SerializeField] private Vector3 rot = new Vector3(13, 0, 0);
 
 
+    public Transform cameraTransform;
+    
+    public float distanceFromCamera;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +25,17 @@ public class Follow_Player_2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
 
-        transform.position = player.transform.position + offset;
+        //Vector3 resultingPosition = cameraTransform.position + cameraTransform.forward + cameraTransform.rotation * distanceFromCamera;
         
+        //transform.position = resultingPosition;
+        
+        transform.LookAt(player.transform);
+
+        
+        transform.position = player.transform.position + offset;
+        //transform.rotation = player.transform.rotation;
+
 
     }
 }
